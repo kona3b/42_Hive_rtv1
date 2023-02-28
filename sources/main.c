@@ -6,7 +6,7 @@
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 23:16:26 by kaittola          #+#    #+#             */
-/*   Updated: 2023/02/28 04:21:02 by kaittola         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:05:26 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int	main(int argc, char **argv)
 	static t_mlx	mlx;
 	int				scene;
 
+	if (argc != 2 || ft_strlen(argv[1]) != 1)
+		exit_message(EXIT_USAGE, EXIT_ERROR);
 	scene = ft_atoi(argv[1]);
-	if (argc != 2 || ft_strlen(argv[1]) != 1 || scene < 1 || scene > 5)
+	if (scene < 1 || scene > 5)
 		exit_message(EXIT_USAGE, EXIT_ERROR);
 	mlx.scene = scene;
 	init_mlx(&mlx);
